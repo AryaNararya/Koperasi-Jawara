@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Manajemen Keuangan</title>
+</head>
+<body>
+    <h2>Daftar Transaksi</h2>
+    <a href="/add">Tambah Transaksi</a>
+    <table border="1">
+        <tr>
+            <th>Deskripsi</th>
+            <th>Jumlah</th>
+            <th>Tipe</th>
+            <th>Tanggal</th>
+            <th>Aksi</th>
+        </tr>
+        <% transactions.forEach(transaction => { %>
+        <tr>
+            <td><%= transaction.description %></td>
+            <td>Rp <%= transaction.amount %></td>
+            <td><%= transaction.type === 'income' ? 'Pemasukan' : 'Pengeluaran' %></td>
+            <td><%= new Date(transaction.date).toLocaleDateString() %></td>
+            <td>
+                <a href="/edit/<%= transaction._id %>">Edit</a>
+                <form action="/delete/<%= transaction._id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">Hapus</button>
+                </form>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+</body>
+</html>

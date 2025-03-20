@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Edit Transaksi</title>
+</head>
+<body>
+    <h2>Edit Transaksi</h2>
+    <form action="/edit/<%= transaction._id %>?_method=PUT" method="POST">
+        <input type="text" name="description" value="<%= transaction.description %>" required><br>
+        <input type="number" name="amount" value="<%= transaction.amount %>" required><br>
+        <select name="type">
+            <option value="income" <%= transaction.type === 'income' ? 'selected' : '' %>>Pemasukan</option>
+            <option value="expense" <%= transaction.type === 'expense' ? 'selected' : '' %>>Pengeluaran</option>
+        </select><br>
+        <button type="submit">Simpan</button>
+    </form>
+    <a href="/">Kembali</a>
+</body>
+</html>

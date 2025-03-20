@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Tambah Transaksi</title>
+</head>
+<body>
+    <h2>Tambah Transaksi</h2>
+    <form action="/add" method="POST">
+        <input type="text" name="description" placeholder="Deskripsi" required><br>
+        <input type="number" name="amount" placeholder="Jumlah" required><br>
+        <select name="type">
+            <option value="income">Pemasukan</option>
+            <option value="expense">Pengeluaran</option>
+        </select><br>
+        <button type="submit">Tambah</button>
+    </form>
+    <a href="/">Kembali</a>
+</body>
+</html>
